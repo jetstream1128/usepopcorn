@@ -1,16 +1,31 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-// import "./index.css";
-// import App from "./App";
+import "./index.css";
+import App from "./App";
 // import StarRating from "./StarRating";
-import "./TextExpander-Style.css";
-import TextExpander from "./TextExpander";
+// import "./TextExpander-Style.css";
+// import TextExpander from "./TextExpander";
+
+// function Test() {
+// 	const [test, setTest] = useState(0);
+// 	return (
+// 		<div>
+// 			<StarRating color="black" onSetRating={setTest} />
+// 			<div>this movie has {test}</div>
+// 		</div>
+// 	);
+// }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		{/* <App /> */}
-		<div>
+		<App />
+		{/* <StarRating size={48} maxRating={10} color="blue" />
+		<StarRating color="green" />
+		<StarRating />
+		<Test /> */}
+
+		{/* <div>
 			<TextExpander>
 				Space travel is the ultimate adventure! Imagine soaring past the stars
 				and exploring new worlds. It's the stuff of dreams and science fiction,
@@ -41,6 +56,6 @@ root.render(
 				discover next!
 			</TextExpander>
 			<br />
-		</div>
+		</div>*/}
 	</React.StrictMode>
 );

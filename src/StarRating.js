@@ -43,6 +43,7 @@ export default function StarRating({
 	function handleRating(rating) {
 		setRating(rating);
 		onSetRating !== undefined && onSetRating(rating);
+		// onSetRating(rating);
 	}
 
 	return (

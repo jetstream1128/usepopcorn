@@ -11,9 +11,7 @@
 }
 
 ::-webkit-scrollbar {
-	width: 0;
-	height: 0;
-	scrollbar-width: none;
+	display: none;
 }
 
 * {
@@ -60,7 +58,7 @@ body {
 	max-width: 42rem;
 	background-color: var(--color-background-500);
 	border-radius: 0.9rem;
-	overflow: scroll;
+	overflow-y: scroll;
 	position: relative;
 }
 
@@ -287,6 +285,7 @@ body {
 }
 
 .rating {
+	text-align: center;
 	background-color: var(--color-background-100);
 	border-radius: 0.9rem;
 	padding: 2rem 2.4rem;
