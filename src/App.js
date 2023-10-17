@@ -68,6 +68,7 @@ export default function App() {
 				return;
 			}
 
+			handleCloseMovie();
 			fetchMovies();
 
 			return function () {
@@ -282,6 +283,35 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
 		[selectedId]
 	);
 
+	useEffect(
+		function () {
+			if (!title) return;
+			document.title = `Movie | ${title}`;
+
+			return function () {
+				document.title = "usePopcorn";
+			};
+		},
+		[title]
+	);
+
+	useEffect(
+		function () {
+			function callback(e) {
+				if (e.code === "Escape") {
+					onCloseMovie();
+				}
+			}
+
+			document.addEventListener("keydown", callback);
+
+			return function () {
+				document.removeEventListener("keydown", callback);
+			};
+		},
+		[onCloseMovie]
+	);
+
 	function handleAdd() {
 		const newWatchedMovie = {
 			imdbID: selectedId,
@@ -297,18 +327,6 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
 		onCloseMovie();
 	}
 
-	useEffect(
-		function () {
-			if (!title) return;
-			document.title = `Movie | ${title}`;
-
-			return function () {
-				document.title = "usePopcorn";
-			};
-		},
-		[title]
-	);
-
 	return (
 		<div className="details">
 			{isLoading ? (
@@ -316,11 +334,9 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
 			) : (
 				<>
 					<header>
-						{console.log()}
 						<button className="btn-back" onClick={onCloseMovie}>
 							&larr;
 						</button>
-						{/* {poster !== "N/A" ? poster : console.log("no image")} */}
 						<img
 							src={poster !== "N/A" ? poster : "/noimg.jpg"}
 							alt={`Poster of ${movie} movie`}
