@@ -194,7 +194,6 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
 	} = movie;
 
 	const isTop = imdbRating > 8;
-	console.log(isTop);
 
 	useEffect(
 		function () {
